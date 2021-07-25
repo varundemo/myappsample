@@ -20,3 +20,7 @@ git commit -m 'Changed app.js'
 touch .gitignore
 --> now write the files which you don't want to commit
 --> can also add folder to .gitignore file with /foldername
+11) To create a brand -->
+git branch login
+12) To enter in the branch -->
+git checkout login
