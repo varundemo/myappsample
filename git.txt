@@ -10,3 +10,7 @@ git rm --cached index.html
 git add *.html
 6) To add all the files -->
 git add .
+7) git commit --> open up the vim editor
+remove comment from Initial commit
+8) To get out of the vim editor -->
+esc    and the type :wq
