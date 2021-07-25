@@ -26,3 +26,5 @@ git branch login
 git checkout login
 13) To merge two branches -->
 git merge login
+14) If any changes made -->
+git pull
