@@ -1,0 +1,12 @@
+1) git init   //create .git folder
+2) Adding name and email -->
+(i) git config --global user.name 'Varun'
+(ii) git config --global user.email 'varunkumar11uee058@gmail.com'
+3) To add file in git repository -->
+git add index.html
+4) To remove file -->
+git rm --cached index.html
+5) To add any file -->
+git add *.html
+6) To add all the files -->
+git add .
