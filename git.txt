@@ -28,3 +28,5 @@ git checkout login
 git merge login
 14) If any changes made -->
 git pull
+15) To add another file to git -->
+git push
