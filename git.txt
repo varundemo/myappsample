@@ -14,3 +14,5 @@ git add .
 remove comment from Initial commit
 8) To get out of the vim editor -->
 esc    and the type :wq
+9) To skip opening of file in vim editor when edit any file
+git commit -m 'Changed app.js'
