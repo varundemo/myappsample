@@ -16,3 +16,7 @@ remove comment from Initial commit
 esc    and the type :wq
 9) To skip opening of file in vim editor when edit any file
 git commit -m 'Changed app.js'
+10) create git ignore file -->
+touch .gitignore
+--> now write the files which you don't want to commit
+--> can also add folder to .gitignore file with /foldername
