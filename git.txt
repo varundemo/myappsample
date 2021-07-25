@@ -24,3 +24,5 @@ touch .gitignore
 git branch login
 12) To enter in the branch -->
 git checkout login
+13) To merge two branches -->
+git merge login
