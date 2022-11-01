@@ -30,3 +30,156 @@ git merge login
 git pull
 15) To add another file to git -->
 git push
+
+
+1. get_template_directory_uri()
+--> give path to theme directory.
+2. bloginfo('template_directory')
+--> give path to theme directory.
+3. ctr x find and replace in sublime
+4. get_header();
+--> call header file.
+5. header-{name}.php
+--> to call custom header
+    get_header('name');
+6. get_footer();
+--> call footer file.
+7. file name should be functions.php
+8. register_nav_menus( array('key'=>'menu-name') ) -> functions.php
+--> to show menu in sidebar of the wp admin panel in appearance
+9. wp_nav_menu( array('theme_location'=>'key-name', 'menu_class'=>'nav') )
+--> to show custom menu in the front end.
+   'menu_class' is the ul custom class to be given. 
+10. page.php
+--> default page for any of the page.
+11. the_title()
+--> show the title of the page.
+12. echo site_url();
+--> give the website url.
+13. To make home page and website url same.
+--> Appearance > customize > Homepage setting > a static page
+    > posts page -> select Home
+14. the_content() or echo get_the_title(); or if not work use the_post(); top after get_header();
+--> to show the page content on the page.php file in front end.
+15. add_theme_support('post-thumbnails'); --> functions.php
+--> to add feature image option in custom theme.
+16. the_post_thumbnail();
+    the_post_thumbnail('thumbnail')              //150px 150px;
+    the_post_thumbnail('medium')                 //300px 300px
+    the_post_thumbnail('large')                  // 1024px 1024px
+    the_post_thumbnail('full')                   //orignal
+    the_post_thumbnail(array(100,100))           //custom height and width
+--> show show thumbnail image with 'image tag' on the front end.
+17. wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
+--> return the path of the thumbnail image in an array.
+18. add_theme_support('custom-header') --> functions.php;
+--> To add header image in wp admin.
+19. get_header_image();
+--> return the path of the logo image to the front end.
+
+To Create Custom Template -->
+20. Create a file name template-{filename}.php
+    write  code in comment tag in php tag
+    // Template Name:template Name
+--> to show to choose custom template in wp admin.
+
+21. while( have_post() ){ the_post(); }
+--> work only on index.php to loop the posts available.
+    the_post function count the number of post that how many times loop has to work.
+22. the_title();
+--> inside loop shows post title.
+23. echo get_the_date() or the_date()
+--> shows the date of the post.
+24. the_excerpt()
+--> To show short description of the page.
+
+To make pagination -->
+25. To set limit in pagination to show post.
+--> setting > reading > blog pages show at most
+26. WP-PageNavi (Plugin)
+--> Used to show pagination on the page.
+27. echo wp_pagenavi()
+--> works only with plugin to show numbers on the page.
+28. wp_head() and wp_footer()
+--> call all the css and javascript of the plugin.
+29. the_permalink()
+--> give the post detail page url, that go to single.php
+30. the_permalink(page_id)
+--> go the the page of which id is given.
+31. the_author();
+--> shows name of the author of the post.
+32. comment_form();
+--> To add comment form for the post.
+33. comments_template();
+--> To show both comment list and comment form.
+34. category.php
+--> To make category for the posts.
+    Same code as index.php
+35. register_sidebar( array('name'=>'sidebar_name', 'id'=>'sidebar_id' ) )    -- functions.php;
+--> To create sidebar this function will show 'widget' section in apprance where we can create          custom sidebar.
+36. dynamic_sidebar('sidebar_id');
+--> To show the sidebar on the frontend.
+37. sidebar.php
+--> To create sidebar in this file.
+38. get_sidebar() or get_sidebar('sidebar_name');
+--> To call the sidebar where ever you want to use it.
+39. add_theme_support('custom-background')  -- functions.php;
+--> To add background option in wp-admin
+40. body_class();
+--> Add in body tag. It shows background image which is added from the wp admin panel
+41. bloginfo('name') or wp_title();
+--> To show the site title on frontend.
+42. bloginfo('description')
+--> It shows site tag line on to the frontend.
+43. is_front_page()
+--> To find out website front page or not.
+
+Creating 404 page for error page
+44. 404.php
+--> call header and footer
+
+45. get_categories( array('taxonomy'=>'category') );
+--> To get all the categories which we have created. It returns data in array format need to use loop to get all data.
+45. echo get_category_link(term_id);
+--> give the link which shows all the posts which related to the category.
+46. Term, texonomy, category
+--> All related to the category.
+
+SHORT DESCRIPTION
+47. add_post_type_support('page','excerpt')   -- functions.php
+--> It shows excerpt (short description) option on the wp admin panel.
+48. the_excerpt();
+--> It shows short description on the front end.
+
+Custom Post Type
+49. Install 'Custom Post Type Maker' plugin make custom posts.
+50. $newsquery = new Wp_Query( array('post_type'=>'post_type_name', 'post_status'=>'publish' ) );
+   --> while( $newsquery->have_posts() ) { $newsquery->the_post() }
+   --> to get the custom post data on to the front end.
+51. $newsCat = get_terms(['taxonomy'=>'category_name', 'hide_empty'=>false,'orderby'=>'name','order'=>'ASC','number'=>1, 'parent'=>0])
+--> shows the custom category on the frontend. hide_empty if there is any category which does not have any post.
+    parent will give the only parent categories.
+52. Plugin -- Category and Taxonomy Image
+--> To add images for the category section. This plugin will show in setting section.
+53. $meta_img = get_wp_term_image($term_id);
+--> Shows the image to the frontend.
+54. texonomy-{category_name}.php
+--> Go to that page after clicking the link which matches those posts with category.
+55. $catData = get_queried_object();
+--> return all the data related to that category.
+56. $wpnew = array( 'post_type'=>'news', 'post_status'=>'publish', 
+                        'tax_query'=>array( array(
+                        'taxonomy'=>'category_name', 'field'=>'term_id', 'terms'=>$term_id ) ) );
+--> Give the specific posts according to the categoryname and catergoryid pass to id.
+    'term_id' we will get from 'get_queried_object()';
+
+CUSTOM FIELD
+57. Plugin -- Advance Custom Fields and Advance Custom Fields:Repeater Fields
+--> ACF To add custom fields according to the page.
+58. the_field('field_name', post_id);
+--> It gives the field value which we have added for it.
+59. get_the_id();
+--> Find out the id of the post in loop.
+
+
+
